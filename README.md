@@ -73,7 +73,7 @@ Dự án này sử dụng **Machine Learning** để dự báo khả năng **kh�
 - Mô hình dự đoán tốt nhóm khách hàng *không đăng ký*
 - Recall của nhóm *đăng ký* thấp hơn do dữ liệu mất cân bằng
 
-📌 **Nhận xét**: Logistic Regression là lựa chọn phù hợp cho bài toán và phạm vi môn học Khoa học dữ liệu cho tài chính.
+📌 **Nhận xét**: Logistic Regression là lựa chọn phù hợp cho bài toán và phạm vi môn học Khoa học dữ liệu cho tài chính (DAT706_251_L08).
 
 ---
 
