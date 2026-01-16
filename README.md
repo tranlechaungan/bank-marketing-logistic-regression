@@ -4,11 +4,12 @@
 <div align="center">
 
 **📊 Phân tích & Dự báo hành vi khách hàng ngân hàng bằng Machine Learning**  
-*Mô hình Hồi quy Logistic (Logistic Regression)*
+*Các Mô Hình Học Máy: Logistic Regression, Decision Tree, Random Forest, XGBoost*
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML-FF6B35?style=for-the-badge&logo=xgboost&logoColor=white)
 ![License](https://img.shields.io/badge/Use-Academic-green?style=for-the-badge)
 
 [📌 Tổng quan](#-tổng-quan) • [📊 Dữ liệu](#-dữ-liệu) • [🤖 Mô hình](#-mô-hình-học-máy) • [📈 Kết quả](#-kết-quả) • [⚙️ Cài đặt](#️-cài-đặt)
@@ -49,31 +50,39 @@ Dự án này sử dụng **Machine Learning** để dự báo khả năng **kh�
 ---
 
 ## 🤖 Mô hình học máy
-- **Thuật toán**: Logistic Regression  
-- **Loại bài toán**: Phân loại nhị phân (Binary Classification)  
-- **Lý do lựa chọn**:
-  - Phù hợp chương *Máy học cơ bản*
-  - Dễ giải thích
-  - Hiệu quả với bài toán dự đoán xác suất
+Dự án thử nghiệm và so sánh nhiều thuật toán học máy cho bài toán phân loại nhị phân:
+
+- **Logistic Regression**: Mô hình tuyến tính cho phân loại nhị phân, dễ giải thích và hiệu quả với dữ liệu có cấu trúc.
+- **Decision Tree Classifier**: Mô hình cây quyết định, dễ hiểu và trực quan, nhưng có thể overfitting.
+- **Random Forest Classifier**: Ensemble của nhiều cây quyết định, cải thiện độ chính xác và giảm overfitting.
+- **XGBoost Classifier**: Thuật toán boosting mạnh mẽ, thường đạt hiệu suất cao trên nhiều bài toán.
+
+**Lý do lựa chọn các mô hình**:
+- Phù hợp với chương trình *Máy học cơ bản*
+- Bao gồm cả mô hình tuyến tính và phi tuyến tính để so sánh
+- Tập trung vào phân loại nhị phân với dữ liệu mất cân bằng
 
 ---
 
 ## 🔬 Quy trình thực hiện
 1. Khám phá và làm sạch dữ liệu  
-2. Mã hóa biến phân loại  
-3. Chuẩn hóa dữ liệu (`StandardScaler`)  
-4. Chia tập huấn luyện / kiểm tra  
-5. Huấn luyện mô hình Logistic Regression  
-6. Đánh giá mô hình  
+2. Mã hóa biến phân loại (One-Hot Encoding)  
+3. Chuẩn hóa dữ liệu số (`StandardScaler`)  
+4. Chia tập huấn luyện / kiểm tra (70/30)  
+5. Huấn luyện và đánh giá các mô hình: Logistic Regression, Decision Tree, Random Forest, XGBoost  
+6. So sánh hiệu suất dựa trên Accuracy, Precision, Recall, F1-Score  
 
 ---
 
 ## 📈 Kết quả
-- **Accuracy**: ~ **90%**
-- Mô hình dự đoán tốt nhóm khách hàng *không đăng ký*
-- Recall của nhóm *đăng ký* thấp hơn do dữ liệu mất cân bằng
+Sau khi thử nghiệm và so sánh các mô hình trên tập kiểm tra:
 
-📌 **Nhận xét**: Logistic Regression là lựa chọn phù hợp cho bài toán và phạm vi môn học Khoa học dữ liệu cho tài chính (DAT706_251_L08).
+- **XGBoost**: Độ chính xác cao nhất (~90.71%), cân bằng tốt giữa Precision và Recall (F1-Score: 0.5591)
+- **Random Forest**: Độ chính xác cao (~90.58%), Precision tốt nhất (0.6695)
+- **Logistic Regression**: Độ chính xác ~89.98%, ổn định và dễ giải thích
+- **Decision Tree**: Độ chính xác thấp nhất (~87.21%), dễ overfitting
+
+📌 **Nhận xét**: XGBoost là mô hình hoạt động tốt nhất tổng thể, đặc biệt trong việc cân bằng giữa phát hiện đúng và giảm sai sót. Tuy nhiên, Logistic Regression vẫn phù hợp cho phạm vi môn học Khoa học dữ liệu cho tài chính (DAT706_251_L08) do tính đơn giản và khả năng giải thích.
 
 ---
 
@@ -83,7 +92,7 @@ Dự án này sử dụng **Machine Learning** để dự báo khả năng **kh�
 ├── data/
 │   └── bank-full.csv
 ├── notebooks/
-│   └── Bank_Marketing_Analysis.ipynb
+│   └── bank-marketing-logistic-regression.ipynb
 ├── README.md
 ```
 
@@ -91,7 +100,7 @@ Dự án này sử dụng **Machine Learning** để dự báo khả năng **kh�
 
 ## ⚙️ Cài đặt
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+pip install pandas numpy matplotlib seaborn scikit-learn xgboost
 ```
 
 ---
@@ -108,6 +117,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 ## 📚 Tài liệu tham khảo
 - UCI Machine Learning Repository – Bank Marketing Dataset  
 - Scikit-learn Documentation  
+- XGBoost Documentation  
 - Bài giảng *Máy học cơ bản*  
 
 ---
